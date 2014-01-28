@@ -1,0 +1,6 @@
+source("WFsnm.R")
+source("WFisland.R")
+source("WFbottle.R")
+source("CoalTimes.R")
+source("SummaryStats.R")
+source("PlotTree.R")
