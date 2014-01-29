@@ -27,7 +27,16 @@ parens=function(noden,tree,left,right,newick)
       }
     return(newick)
   }
+
 tree2newick=function(tree)
+  #returns coalescent tree in a newick format
+  #to print this tree,use the ape package:
+  #x=simWFtree(10)
+  #x.tree=tree2newick(x)
+  #cat(x.tree,file="temp")
+  #library(ape)
+  #x.tree=read.tree("temp")
+  #plot.phylo(x.tree,direction="downwards",y.lim=c(0,x$tmrca),type="cladogram",show.tip.label=FALSE)
   {
     nsam =(length(tree$nodes)+1)/2
     left=array(dim=2*nsam-1,data=-1)
