@@ -1,6 +1,7 @@
 
 #' Calculate the unfolded site-frequency spectrum
 #' @param d A simulated data set
+#' @export
 sfs = function(d)
 {
 	s = array(data=0,dim=nrow(d$types)-1)
@@ -19,6 +20,7 @@ sfs = function(d)
 
 #' Watterson's theta
 #' @param d A simulated data set
+#' @export
 thetaw = function(d)
 {
 	nsam = nrow(d$types)
@@ -30,6 +32,7 @@ thetaw = function(d)
 
 #' Calculate pi as sum of site heterozygosity
 #' @param d A simulated data set
+#' @export
 pi = function(d)
 {
 	if(length(d$pos)==0) { return(0) }
@@ -45,6 +48,7 @@ pi = function(d)
 
 #' Fay and Wu's ThetaH
 #' @param d A simulated data set
+#' @export
 thetah = function(d)
 {
 	if(length(d$pos)==0) { return(0) }
@@ -90,6 +94,7 @@ TajdDdenominator = function(S,n)
 
 #' Tajima's D
 #' @param d A simulated data set
+#' @export
 TajD = function(d)
 {
 	if( length(d$pos) == 0 )
@@ -102,6 +107,7 @@ TajD = function(d)
 
 #' calculate the number of haplotypes (unique sequences) in the sample
 #' @param d A simulated data set
+#' @export
 Nhaps = function(d)
 {
 	if( length(d$pos) == 0 ){ return(1) }

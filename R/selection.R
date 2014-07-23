@@ -3,6 +3,7 @@
 #rtraj and pfix can be used to relate simulation to results from stochastic theory
 
 #' General formula for delta q for 2-allele model
+#' @export
 #' @param q Current allele frequency
 #' @param wAA Fitness of AA genotype
 #' @param wAa Fitness of Aa genotype
@@ -16,6 +17,7 @@ deltaq = function(q,wAA,wAa,waa)
 }
 
 #' Simulate random trajectory under selection starting from q0.
+#' @export
 #' @param q0 initial mutant allele frequency
 #' @param N Population size
 #' @param wAA Fitness of AA genotype
@@ -39,6 +41,7 @@ rtraj = function(q0,N,wAA,wAa,waa)
   }
 
 #' Estimate fixation prob and time to fixation by simulation
+#' @export
 #' @param q0 initial mutant allele frequency
 #' @param N Population size
 #' @param wAA Fitness of AA genotype

@@ -1,6 +1,7 @@
 #' Trajectory of a new neutral mutation in a diploid Wright-Fisher population of size N
 #' @param N The diploid population size
 #' @return The allele frequency in each generation until fixation or loss
+#' @export
 WFtrajectory <- function(N)
 {
          g=1
