@@ -1,6 +1,9 @@
 #' Waiting times from W-F coalescent
 #' @param n The sample size
 #' @return A list with TMRCA and the total time on the tree based on 1 simulated replicate. Units are 4N generations.
+#' @examples
+#' times = as.data.frame( t(replicate(1e3,WFtimes(20))) )
+#' plot(times$ttot,times$tmrca,xlab="Total time",ylab="TMRCA",main="n = 20")
 WFtimes = function(n)
 {
 	t=0
