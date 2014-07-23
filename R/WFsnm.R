@@ -1,14 +1,16 @@
 #source("WFcoal.R")
 #source("InfiniteSites.R")
 
+#' Simulate a genealogy under the equilibrium WF model for a sample of size n.
+#' @param n The sample size
+#' @return A list containing:
+#' nodes: An array of 2n-1 integers.  nodes[i] is the ancestor of the i-th node.  
+#'	 The root is labeled with a -1
+#' times: An array of 2n-1 times, corresponding to the values in nodes.
+#' tmrca: The tmrca of the sample, equivalent to times[2n-1]
+#' ttot:  The total time on the tree
 simWFtree = function(n)
-#Simulate a genealogy under the equilibrium WF model for a sample of size n.
-#The return list contains:
-# nodes: An array of 2n-1 integers.  nodes[i] is the ancestor of the i-th node.  
-#	 The root is labeled with a -1
-# times: An array of 2n-1 times, corresponding to the values in nodes.
-# tmrca: The tmrca of the sample, equivalent to times[2n-1]
-# ttot:  The total time on the tree
+
 {
 	nodes = array(-1,dim=2*n-1)
 	times = array(0.,dim=2*n-1)
@@ -52,6 +54,10 @@ simWFtree = function(n)
 	return(treedata)
 }
 
+#' Simulate a sample of size n under the idealized Wright-Fisher model
+#' @param n The sample size
+#' @param theta The mutation rate (4Nu)
+#' @return An object of class coalSample
 WFsample = function(n,theta)
 {
 	#generate a tree
@@ -63,6 +69,10 @@ WFsample = function(n,theta)
 	return(s)
 }
 
+#' Simulate a sample of size n under the idealized Wright-Fisher model
+#' @param n The sample size
+#' @param S The number of mutations to place in the sample
+#' @return An object of class coalSample
 WFsampleS = function(n,S)
 {
 	#generate a tree

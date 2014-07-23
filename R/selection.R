@@ -2,7 +2,12 @@
 #deltaq can be used to plot change in allele freq in infinite-N pops for autosomal loci
 #rtraj and pfix can be used to relate simulation to results from stochastic theory
 
-#general formula for delta q for 2-allele model
+#' General formula for delta q for 2-allele model
+#' @param q Current allele frequency
+#' @param wAA Fitness of AA genotype
+#' @param wAa Fitness of Aa genotype
+#' @param waa Fitness of aa genotype
+#' @return The change in allele frequency in an infinitely-large Wright-Fisher population
 deltaq = function(q,wAA,wAa,waa)
 {
   p = 1 - q
@@ -10,7 +15,13 @@ deltaq = function(q,wAA,wAa,waa)
   return ( p*q*(p*(wAa-wAA)+q*(waa-wAa))/wbar )
 }
 
-#random trajectory under selection starting from q0
+#' Simulate random trajectory under selection starting from q0.
+#' @param q0 initial mutant allele frequency
+#' @param N Population size
+#' @param wAA Fitness of AA genotype
+#' @param wAa Fitness of Aa genotype
+#' @param waa Fitness of aa genotype
+#' @return A random allele frequency trajectory
 rtraj = function(q0,N,wAA,wAa,waa)
   {
     q=q0
@@ -27,7 +38,14 @@ rtraj = function(q0,N,wAA,wAa,waa)
     return (traj)
   }
 
-#fixation prob and dist of times
+#' Estimate fixation prob and time to fixation by simulation
+#' @param q0 initial mutant allele frequency
+#' @param N Population size
+#' @param wAA Fitness of AA genotype
+#' @param wAa Fitness of Aa genotype
+#' @param waa Fitness of aa genotype
+#' @param nsims The number of replicates to run
+#' @return A list.  prob = estimate of fixation probability.  times = distribution of fixation times
 pfix = function(q0,N,wAA,wAa,waa,nsims)
   {
     times=array()
