@@ -8,6 +8,9 @@ WFtimes(n)
 \arguments{
 \item{n}{The sample size}
 }
+\value{
+A list with TMRCA and the total time on the tree based on 1 simulated replicate. Units are 4N generations.
+}
 \description{
 Waiting times from W-F coalescent
 }

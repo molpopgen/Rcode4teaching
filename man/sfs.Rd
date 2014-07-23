@@ -5,6 +5,9 @@
 \usage{
 sfs(d)
 }
+\arguments{
+\item{d}{A simulated data set}
+}
 \description{
 Calculate the unfolded site-frequency spectrum
 }

@@ -8,6 +8,9 @@ an(n)
 \arguments{
 \item{n}{The sample size.}
 }
+\value{
+The expected total time on the tree (in units of 4N generations)
+}
 \description{
 Expected total time on genealogy for W-F coalescent
 }

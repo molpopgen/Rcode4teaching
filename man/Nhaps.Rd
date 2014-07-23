@@ -5,6 +5,9 @@
 \usage{
 Nhaps(d)
 }
+\arguments{
+\item{d}{A simulated data set}
+}
 \description{
 calculate the number of haplotypes (unique sequences) in the sample
 }

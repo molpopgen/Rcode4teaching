@@ -5,6 +5,9 @@
 \usage{
 thetah(d)
 }
+\arguments{
+\item{d}{A simulated data set}
+}
 \description{
 Fay and Wu's ThetaH
 }
