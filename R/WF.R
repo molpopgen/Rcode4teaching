@@ -17,6 +17,11 @@ WFtrajectory <- function(N)
          return(trajectory)
 }
 
+#' Trajectory of a new  mutation subject to genic/additive selection in a diploid Wright-Fisher population of size N
+#' @param N The diploid population size
+#' @param s The selection coefficient
+#' @return The allele frequency in each generation until fixation or loss
+#' @export
 WFgenic <- function(N,s)
 {
 	wAA = 1+2*s
@@ -41,6 +46,12 @@ WFgenic <- function(N,s)
 	return(traj)
 }
 
+#' Trajectory of a new  mutation subject to selection with arbitrary dominance in a diploid Wright-Fisher population of size N
+#' @param N The diploid population size
+#' @param s The selection coefficient
+#' @param h The dominance of the mutant allele
+#' @return The allele frequency in each generation until fixation or loss
+#' @export
 WFdominance <- function(N,s,h)
 {
 	wAA = 1+s
@@ -65,6 +76,13 @@ WFdominance <- function(N,s,h)
 	return(traj)
 }
 
+#' Trajectory of a new  mutation subject to overdomimant selection in a diploid Wright-Fisher population of size N
+#' @param N The diploid population size
+#' @param s1 The selection coefficient applied to Aa
+#' @param s2 The selection coefficient applied to Aa
+#' @param h The dominance of the mutant allele
+#' @return The allele frequency in each generation until fixation or loss
+#' @export
 WFoverdominance <- function(N,s1,s2,ngen,ifreq)
 {
 	wAA = 1-s2
@@ -89,6 +107,12 @@ WFoverdominance <- function(N,s1,s2,ngen,ifreq)
 	return(traj)
 }
 
+#' Estimate fixation probability under genic/additive selection
+#' @param N The diploid population size
+#' @param s The selection coefficient
+#' @param howmany The number of simulation to run
+#' @return An estimate of the fixation probability
+#' @export
 pfixgenic <- function(N,s,howmany)
 {
 	i=0
@@ -105,6 +129,13 @@ pfixgenic <- function(N,s,howmany)
 	return(nfix/howmany)
 }
 
+#' Estimate fixation probability under models with arbitrary dominance
+#' @param N The diploid population size
+#' @param s The selection coefficient
+#' @param h The domimance of the mutant allele
+#' @param howmany The number of simulation to run
+#' @return An estimate of the fixation probability
+#' @export
 pfixdominance <- function(N,s,h,howmany)
 {
 	i=0
@@ -121,6 +152,12 @@ pfixdominance <- function(N,s,h,howmany)
 	return(nfix/howmany)
 }
 
+#' Returns a trajectory of a mutation that has fixed due to selection
+#' @param N The diploid population size
+#' @param s The selection coefficient
+#' @param h The domimance of the mutant allele
+#' @return A list with the allele frequency trakectory plus the number of attempts needed before a mutation fixed
+#' @export
 fixtrajdominance <- function(N,s,h)
 {
 	ntries=0
