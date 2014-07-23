@@ -3,12 +3,7 @@
 
 #' Simulate a genealogy under the equilibrium WF model for a sample of size n.
 #' @param n The sample size
-#' @return A list containing:
-#' nodes: An array of 2n-1 integers.  nodes[i] is the ancestor of the i-th node.  
-#'	 The root is labeled with a -1
-#' times: An array of 2n-1 times, corresponding to the values in nodes.
-#' tmrca: The tmrca of the sample, equivalent to times[2n-1]
-#' ttot:  The total time on the tree
+#' @return A class of type coalTree
 simWFtree = function(n)
 
 {
