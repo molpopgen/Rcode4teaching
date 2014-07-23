@@ -8,9 +8,9 @@ WFoverdominance(N, s1, s2, ngen, ifreq)
 \arguments{
 \item{N}{The diploid population size}
 
-\item{s1}{The selection coefficient applied to Aa}
+\item{s1}{The selection coefficient applied to AA}
 
-\item{s2}{The selection coefficient applied to Aa}
+\item{s2}{The selection coefficient applied to aa}
 
 \item{h}{The dominance of the mutant allele}
 }
