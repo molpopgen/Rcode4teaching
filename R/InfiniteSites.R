@@ -1,8 +1,8 @@
 #the following functions are use to apply the
 #infinitely-many sites model to a tree
 
+#'pick a random branch from a tree
 pickbranch=function(tree,n,r)
-#pick a random branch from a tree
 {	
 	t = 0
 	for(i in 1:(2*n-1))

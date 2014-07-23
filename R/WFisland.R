@@ -1,5 +1,5 @@
-source("WFcoal.R")
-source("InfiniteSites.R")
+##source("WFcoal.R")
+##source("InfiniteSites.R")
 
 simWFtreeMig = function(n1,n2,migrate)
 #WF Island model w/symmetric migration

@@ -1,14 +1,17 @@
+#' Trajectory of a new neutral mutation in a diploid Wright-Fisher population of size N
+#' @param N The diploid population size
+#' @return The allele frequency in each generation until fixation or loss
 WFtrajectory <- function(N)
 {
          g=1
          x=1
          trajectory = array()
-         trajectory[g] = x/N
-         while(  x> 0 && x < N )
+         trajectory[g] = x/(2*N)
+         while(  x> 0 && x < (2*N) )
          {
                   g=g+1
-                  x=rbinom(1,N,x/N)
-                  trajectory[g]=x/N
+                  x=rbinom(1,(2*N),x/(2*N))
+                  trajectory[g]=x/(2*N)
          }
          return(trajectory)
 }

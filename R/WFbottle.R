@@ -1,6 +1,3 @@
-source("WFcoal.R")
-source("InfiniteSites.R")
-
 simWFtreeBottle = function(n,tr,f,d)
 {
 	if( tr < 0 || f < 0 || d < 0 )

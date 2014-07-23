@@ -1,5 +1,5 @@
-source("WFcoal.R")
-source("InfiniteSites.R")
+#source("WFcoal.R")
+#source("InfiniteSites.R")
 
 simWFtree = function(n)
 #Simulate a genealogy under the equilibrium WF model for a sample of size n.

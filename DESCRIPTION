@@ -1,0 +1,10 @@
+Package: Rcode4teaching
+Title: What the package does (short line)
+Version: 0.1
+Author: "Kevin Thornton <krthornt@uci.edu> [aut, cre]"
+Maintainer: Kevin Thornton <krthornt@uci.edu>
+Description: Contains R code that I use for teaching at UCI
+Depends:
+    R (>= 3.1.0)
+License: GPL
+LazyData: true

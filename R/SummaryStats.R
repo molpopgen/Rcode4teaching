@@ -1,6 +1,6 @@
 
+#' Calculate the unfolded site-frequency spectrum
 sfs = function(d)
-#calculate the unfolded site-frequency spectrum
 {
 	s = array(data=0,dim=nrow(d$types)-1)
 	S = length(d$pos)
@@ -25,8 +25,8 @@ thetaw = function(d)
 	return( 2*S/(an(nsam)) )
 }
 
+#' Calculate pi as sum of site heterozygosity
 pi = function(d)
-#calculate pi as sum of site heterozygosity
 {
 	if(length(d$pos)==0) { return(0) }
 	pq=0
@@ -39,8 +39,8 @@ pi = function(d)
 	return ((2*pq)/(nsam*(nsam-1)))
 }
 
+#' Fay and Wu's ThetaH
 thetah = function(d)
-#Fay and Wu's ThetaH
 {
 	if(length(d$pos)==0) { return(0) }
 	H=0
@@ -53,7 +53,7 @@ thetah = function(d)
 	return (2*H/(nsam*(nsam-1)))
 }
 
-#Tajima's D requires a lot of functions
+#' Tajima's D requires a lot of functions
 bn = function(n)
 {
 	b=0
@@ -88,8 +88,8 @@ TajD = function(d)
 	return ( (pi(d)-thetaw(d))/TajdDdenominator(length(d$pos),nrow(d$types)) )
 }
 
+#' calculate the number of haplotypes (unique sequences) in the sample
 Nhaps = function(d)
-#calculate the number of haplotypes (unique sequences) in the sample
 {
 	if( length(d$pos) == 0 ){ return(1) }
 	return( nrow(unique(as.data.frame(d$types))) )
