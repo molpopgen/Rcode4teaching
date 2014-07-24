@@ -86,7 +86,8 @@ updateZ <- function(data,P,N)
 #' @param burn Number of MCMC iterations for burn in.
 #' @param m Number of MCMC generations after the burn in step.
 #' @return An array of assignment probabilities.  These are the probability that each individual belongs to population 1.
-#' @note This is the most basic implementation of the structure algorithm possible
+#' @note This is the most basic implementation of the structure algorithm possible.  The implementation here
+#' was in response to homework assignment number 4 in Carlos Bustamante's Biometry 694 course at Cornell.
 #' @details See help(genoData) for more detail on the format that data must take.
 #' @references Pritchard, J. K., M. Stephens, and P. Donnelly (2000) Inference of Population Structure Using Multilocus Genotype Data. Genetics 155:945-959
 #' @examples

@@ -22,7 +22,8 @@ The "structure" algorithm for biallelic data and K = 2
 See help(genoData) for more detail on the format that data must take.
 }
 \note{
-This is the most basic implementation of the structure algorithm possible
+This is the most basic implementation of the structure algorithm possible.  The implementation here
+was in response to homework assignment number 4 in Carlos Bustamante's Biometry 694 course at Cornell.
 }
 \examples{
 data(genoData)
