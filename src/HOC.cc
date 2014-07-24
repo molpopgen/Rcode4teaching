@@ -22,7 +22,27 @@ NumericMatrix updatePop( const NumericMatrix & pop,
   return rv;
 }
 
+//' Simulate a quantitative trait under a House-of-Cards mutation model
+//' @param N The number of diploids
+//' @param mu The mutation rate (per gamete, per generation)
+//' @param sigmamu The standard deviation in the effect size of new mutations
+//' @param sigmae The standard deviation in random effects added to phenotype
+//' @param sigmas The standard deviation in the Gaussuian fitness function
+//' @param ngens The number of generations to simulate
+//' @return A matrix.  Columns 1 and 2 are the alleles for each diploid.  Column 3 is the random effect.  Phenotype is therefore given by rowSums(result)
+//' @details  Tersely: the mutation model is Kingman's house-of-cards with Gaussian effects.  The inspiration for this function is Turelli.
+//' @references Kingman, J. (1978). A simple model for the balance between selection and mutation. Journal of Applied Probability, 15, 1-12.
+//' @references Turelli, M. (1984). Heritable genetic variation via mutation-selection balance: Lerch's zeta meets the abdominal bristle. Theoretical Population Biology, 25(2), 138-193.
 //' @export
+//' @examples
+//' \dontrun{
+//' N=5e2
+//' mu=0.001
+//' sige=0.15
+//' sigmu=0.5
+//' sigs=1
+//' pop = HOCsim(N,mu,sigmu,sige,sigs,8*N)
+//' }
 // [[Rcpp::export]] 
 NumericMatrix HOCsim(const unsigned & N,
 		     const double & mu,
