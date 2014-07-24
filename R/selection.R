@@ -23,20 +23,34 @@ deltaq = function(q,wAA,wAa,waa)
 #' @param wAA Fitness of AA genotype
 #' @param wAa Fitness of Aa genotype
 #' @param waa Fitness of aa genotype
+#' @param ngens The number of generations to iterate. If -1, the function runs until fixation or loss occurs.  If fixation/loss occurs prior to ngens, the trajectory up until that generation is returned
 #' @return A random allele frequency trajectory
-rtraj = function(q0,N,wAA,wAa,waa)
+rtraj = function(q0,N,wAA,wAa,waa,ngens = -1)
   {
     q=q0
     traj=array()
     traj[1]=q
     generation=2
-    while( q > 0 & q < 1 )
-      {
-        eqp = q + deltaq(q,wAA,wAa,waa)
-        q = rbinom(1,2*N,eqp)/(2*N)
-        traj[generation]=q
-        generation=generation+1
-      }
+    if ( ngens == -1 )
+        {
+            while( q > 0 & q < 1 )
+                {
+                    eqp = q + deltaq(q,wAA,wAa,waa)
+                    q = rbinom(1,2*N,eqp)/(2*N)
+                    traj[generation]=q
+                    generation=generation+1
+                }
+        }
+    else
+        {
+            while( q > 0 & q < 1 & generation <= ngens)
+                {
+                    eqp = q + deltaq(q,wAA,wAa,waa)
+                    q = rbinom(1,2*N,eqp)/(2*N)
+                    traj[generation]=q
+                    generation=generation+1
+                } 
+        }
     return (traj)
   }
 

@@ -18,4 +18,10 @@ A list with the allele frequency trakectory plus the number of attempts needed b
 \description{
 Returns a trajectory of a mutation that has fixed due to selection
 }
+\details{
+Fitnesses are 1, 1+hs, and 1+2s for genotypes AA, Aa, and aa, respectively.  Thus, a is the mutant allele.
+}
+\examples{
+ft = fixtrajdominance(100,0.1,0.05)
+}
 

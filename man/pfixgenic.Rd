@@ -18,4 +18,10 @@ An estimate of the fixation probability
 \description{
 Estimate fixation probability of a new mutation under genic/additive selection
 }
+\details{
+Fitnesses are 1, 1+s, and 1+2s for genotypes AA, Aa, and aa, respectively.  Thus, a is the mutant allele.
+}
+\examples{
+pfix.genic = pfixgenic(100,0.1,10)
+}
 

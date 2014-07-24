@@ -20,4 +20,10 @@ An estimate of the fixation probability
 \description{
 Estimate fixation probability of a new mutation under models with arbitrary dominance
 }
+\details{
+Fitnesses are 1, 1+hs, and 1+2s for genotypes AA, Aa, and aa, respectively.  Thus, a is the mutant allele.
+}
+\examples{
+pfix.dom = pfixdominance(100,0.1,1,10)
+}
 
