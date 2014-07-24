@@ -3,7 +3,7 @@
 \alias{rtraj}
 \title{Simulate random trajectory under selection starting from q0.}
 \usage{
-rtraj(q0, N, wAA, wAa, waa)
+rtraj(q0, N, wAA, wAa, waa, ngens = -1)
 }
 \arguments{
 \item{q0}{initial mutant allele frequency}
@@ -15,6 +15,8 @@ rtraj(q0, N, wAA, wAa, waa)
 \item{wAa}{Fitness of Aa genotype}
 
 \item{waa}{Fitness of aa genotype}
+
+\item{ngens}{The number of generations to iterate. If -1, the function runs until fixation or loss occurs.  If fixation/loss occurs prior to ngens, the trajectory up until that generation is returned}
 }
 \value{
 A random allele frequency trajectory

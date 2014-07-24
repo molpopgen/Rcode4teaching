@@ -5,8 +5,21 @@
 #' @description Stuff I use to generate examples, etc., for lectures
 #' @author Kevin R. Thornton \email{krthornt@@uci.edu}
 #' @references \url{https://github.com/molpopgen/Rcode4teaching}
-#' @exportPattern "^[[:alpha:]]+"
 NULL
+
+#' genoData
+#'
+#' @name genoData
+#' @docType data
+#' @description A data frame consisting of hypothetical genotypes.
+#' The first column represents sampling locations (location 1 or location 2).
+#' The remaining columns are markers, and rows are individual haplotypes.  Data values are 0 or 1,
+#' and represent the two alleles. The data are assumed to be diploid, e.g., pairs of haplotypes
+#' on adjacent rows are the same individual.
+#' This file was originally provided by
+#' Carlos Bustamante for his Biometry 694 course at Cornell University
+#' at some point in the mid-2000s.
+'genoData'
 
 #' coalSample
 #'

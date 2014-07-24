@@ -2,6 +2,7 @@
 #source("InfiniteSites.R")
 
 #' Simulate a genealogy under the equilibrium WF model for a sample of size n.
+#' @export
 #' @param n The sample size
 #' @return A class of type coalTree
 simWFtree = function(n)
@@ -50,6 +51,7 @@ simWFtree = function(n)
 }
 
 #' Simulate a sample of size n under the idealized Wright-Fisher model
+#' @export
 #' @param n The sample size
 #' @param theta The mutation rate (4Nu)
 #' @return An object of class coalSample
@@ -65,6 +67,7 @@ WFsample = function(n,theta)
 }
 
 #' Simulate a sample of size n under the idealized Wright-Fisher model
+#' @export
 #' @param n The sample size
 #' @param S The number of mutations to place in the sample
 #' @return An object of class coalSample
