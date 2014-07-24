@@ -12,6 +12,7 @@ git clone https://github.com/molpopgen/Rcode4teaching
 
 1. [R](http://www.r-project.org)
 2. [Rcpp](http://cran.r-project.org/web/packages/Rcpp/index.html)
+3. A C++ compiler with support for the C++11 standard.
 
 # Installation
 
