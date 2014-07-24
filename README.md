@@ -8,6 +8,11 @@ This package is based on examples that I use to generate notes for various cours
 git clone https://github.com/molpopgen/Rcode4teaching
 ```
 
+# Dependencies
+
+1. [R](http://www.r-project.org)
+2. [Rcpp](http://cran.r-project.org/web/packages/Rcpp/index.html)
+
 # Installation
 
 ```
