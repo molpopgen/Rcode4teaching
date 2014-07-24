@@ -40,7 +40,6 @@ NumericMatrix HOCsim(const unsigned & N,
   generator.seed( unsigned(runif(1,0,std::numeric_limits<unsigned>::max())[0]) );
   for( unsigned gen = 0 ; gen < ngens ; ++gen )
     {
-      Rcerr << gen << '\n';
       NumericVector mutants1 = rbinom(N,1,mu),mutants2=rbinom(N,1,mu);
       //Mutate and add Gaussian noise
       for( unsigned i = 0 ; i < N ; ++i )
