@@ -11,7 +11,6 @@ NumericMatrix updatePop( const NumericMatrix & pop,
   RNGScope scope;
   NumericMatrix rv(pop.nrow(),pop.ncol());
   std::discrete_distribution<double> d(fitnesses.begin(),fitnesses.end());
-  //stop("No more crashes!");
   for( unsigned i = 0 ; i < pop.nrow() ; ++i)
     {
       size_t p1 = d(generator),p2=d(generator);
@@ -33,7 +32,6 @@ NumericMatrix HOCsim(const unsigned & N,
 		     const unsigned & ngens)
 {
   NumericMatrix pop(N,3);
-  //std::vector< std::vector<double> > pop(3,std::vector<double
   std::vector<double> fitnesses(N);
   RNGScope scope;
   std::mt19937 generator;
