@@ -3,6 +3,7 @@
 export(HOC.VGVE)
 export(HOC.VGVE.dist)
 export(HOCsim)
+export(HOCsim_exp)
 export(Nhaps)
 export(TajD)
 export(WFsample)

@@ -3,7 +3,7 @@
 \alias{HOC.VGVE.dist}
 \title{Distribution of VG and VE under Gaussian HOC model}
 \usage{
-HOC.VGVE.dist(N, mu, sigmaMU, sigmaE, sigmaS, ngens, nreps)
+HOC.VGVE.dist(N, mu, sigmaMU, sigmaE, sigmaS, ngens, nreps, gaussian = TRUE)
 }
 \arguments{
 \item{N}{The number of diploids}
@@ -19,6 +19,8 @@ HOC.VGVE.dist(N, mu, sigmaMU, sigmaE, sigmaS, ngens, nreps)
 \item{ngens}{The number of generations to simulate}
 
 \item{nreps}{The number of replicates to simulate}
+
+\item{gaussian}{If TRUE, HOC mutation model is N(0,sigmamu), else it is exp( lambda = 1/sigmamu ).}
 }
 \value{
 A data frame with the VG and VE components of phenotype from each replicate
