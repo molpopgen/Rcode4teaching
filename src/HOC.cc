@@ -125,7 +125,7 @@ NumericMatrix HOCsim_exp(const unsigned & N,
 			 const double & sigmas,
 			 const unsigned & ngens)
 {
-  return HOCsim_generic(N,mu,sigmamu,sigmae,sigmas,ngens, [](const double & x){ return rexp(1,x)[0]; } );
+  return HOCsim_generic(N,mu,sigmamu,sigmae,sigmas,ngens, [](const double & x){ return rexp(1,1./x)[0]; } );
 }
 
 //Returns distribution of VG and VE
