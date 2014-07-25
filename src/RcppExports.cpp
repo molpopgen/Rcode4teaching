@@ -25,6 +25,27 @@ BEGIN_RCPP
     return __sexp_result;
 END_RCPP
 }
+// HOCsim_k
+NumericMatrix HOCsim_k(const unsigned& N, const unsigned& k, const double& mu, const double& sigmamu, const double& sigmae, const double& sigmas, const unsigned& ngens);
+RcppExport SEXP Rcode4teaching_HOCsim_k(SEXP NSEXP, SEXP kSEXP, SEXP muSEXP, SEXP sigmamuSEXP, SEXP sigmaeSEXP, SEXP sigmasSEXP, SEXP ngensSEXP) {
+BEGIN_RCPP
+    SEXP __sexp_result;
+    {
+        Rcpp::RNGScope __rngScope;
+        Rcpp::traits::input_parameter< const unsigned& >::type N(NSEXP );
+        Rcpp::traits::input_parameter< const unsigned& >::type k(kSEXP );
+        Rcpp::traits::input_parameter< const double& >::type mu(muSEXP );
+        Rcpp::traits::input_parameter< const double& >::type sigmamu(sigmamuSEXP );
+        Rcpp::traits::input_parameter< const double& >::type sigmae(sigmaeSEXP );
+        Rcpp::traits::input_parameter< const double& >::type sigmas(sigmasSEXP );
+        Rcpp::traits::input_parameter< const unsigned& >::type ngens(ngensSEXP );
+        NumericMatrix __result = HOCsim_k(N, k, mu, sigmamu, sigmae, sigmas, ngens);
+        PROTECT(__sexp_result = Rcpp::wrap(__result));
+    }
+    UNPROTECT(1);
+    return __sexp_result;
+END_RCPP
+}
 // HOCsim_exp
 NumericMatrix HOCsim_exp(const unsigned& N, const double& mu, const double& sigmamu, const double& sigmae, const double& sigmas, const unsigned& ngens);
 RcppExport SEXP Rcode4teaching_HOCsim_exp(SEXP NSEXP, SEXP muSEXP, SEXP sigmamuSEXP, SEXP sigmaeSEXP, SEXP sigmasSEXP, SEXP ngensSEXP) {

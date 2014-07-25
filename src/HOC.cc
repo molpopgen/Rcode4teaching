@@ -24,6 +24,27 @@ NumericMatrix updatePop( const NumericMatrix & pop,
   return rv;
 }
 
+NumericMatrix updatePop( const NumericMatrix & pop,
+			 const unsigned & k,
+			 const std::vector<double> & fitnesses,
+			 std::mt19937 & generator )
+{
+  RNGScope scope;
+  NumericMatrix rv(pop.nrow(),pop.ncol());
+  std::discrete_distribution<double> d(fitnesses.begin(),fitnesses.end());
+  for( unsigned i = 0 ; i < pop.nrow() ; ++i)
+    {
+      size_t p1 = d(generator),p2=d(generator);
+      for( unsigned j = 0 ; j < k ; ++j )
+	{
+	  NumericVector c = rbinom( 2, 1, 0.5 );
+	  rv(i,2*j) = pop(p1,2*j+c[0]);
+	  rv(i,2*j+1) = pop(p2,2*j+c[1]);
+	}
+    }
+  return rv;
+}
+
 //Generic HOC simulation machine.
 //The emodel parameter must be able to 
 //take sigmamu (std. dev of effect sizes),
@@ -65,6 +86,44 @@ NumericMatrix HOCsim_generic(const unsigned & N,
   return pop;
 }
 
+//K locus simulation
+template<typename effectsizes>
+NumericMatrix HOCsim_k_generic(const unsigned & N,
+			       const unsigned & k,
+			       const double & mu,
+			       const double & sigmamu,
+			       const double & sigmae,
+			       const double & sigmas,
+			       const unsigned & ngens,
+			       const effectsizes & emodel)
+{
+  NumericMatrix pop(N,2*k+1);
+  std::vector<double> fitnesses(N);
+  RNGScope scope;
+  std::mt19937 generator;
+  generator.seed( unsigned(runif(1,0,std::numeric_limits<unsigned>::max())[0]) );
+  for( unsigned gen = 0 ; gen < ngens ; ++gen )
+    {
+      //Mutate and add Gaussian noise
+      for( unsigned i = 0 ; i < N ; ++i )
+	{
+	  NumericVector ismutant = rbinom(2*k,1,mu);
+	  for(unsigned j=0;j<2*k;++j)
+	    {
+	      if( ismutant[j] )
+		{
+		  pop(i,j) = emodel(sigmamu);
+		}
+	    }
+	  pop(i,2*k) = rnorm(1,0,sigmae)[0];
+	  fitnesses[i] = dnorm(NumericVector(1,sum( pop(i,_))),0.,sigmas)[0];
+	}
+      pop = updatePop(pop,k,fitnesses,generator); 
+    }
+  pop(_,2*k) = rnorm(N,0,sigmae);
+  return pop;
+}
+
 //' Simulate a quantitative trait under a Gaussian House-of-Cards mutation model
 //' @param N The number of diploids
 //' @param mu The mutation rate (per gamete, per generation)
@@ -95,6 +154,19 @@ NumericMatrix HOCsim(const unsigned & N,
 		     const unsigned & ngens)
 {
   return HOCsim_generic(N,mu,sigmamu,sigmae,sigmas,ngens, [](const double & x){ return rnorm(1,0.,x)[0]; } );
+}
+
+//' @export
+// [[Rcpp::export]] 
+NumericMatrix HOCsim_k(const unsigned & N,
+		       const unsigned & k,
+		       const double & mu,
+		       const double & sigmamu,
+		       const double & sigmae,
+		       const double & sigmas,
+		       const unsigned & ngens)
+{
+  return HOCsim_k_generic(N,k,mu,sigmamu,sigmae,sigmas,ngens, [](const double & x){ return rnorm(1,0.,x)[0]; } );
 }
 
 //' Simulate a quantitative trait under an exponential House-of-Cards mutation model

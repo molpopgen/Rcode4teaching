@@ -26,6 +26,11 @@ HOCsim <- function(N, mu, sigmamu, sigmae, sigmas, ngens) {
     .Call('Rcode4teaching_HOCsim', PACKAGE = 'Rcode4teaching', N, mu, sigmamu, sigmae, sigmas, ngens)
 }
 
+#' @export
+HOCsim_k <- function(N, k, mu, sigmamu, sigmae, sigmas, ngens) {
+    .Call('Rcode4teaching_HOCsim_k', PACKAGE = 'Rcode4teaching', N, k, mu, sigmamu, sigmae, sigmas, ngens)
+}
+
 #' Simulate a quantitative trait under an exponential House-of-Cards mutation model
 #' @param N The number of diploids
 #' @param mu The mutation rate (per gamete, per generation)
